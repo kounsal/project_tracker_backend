@@ -3,7 +3,7 @@ import cookieParser from "cookie-parser";
 import mainRoutes from "./routes/mainRoutes";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(express.json());

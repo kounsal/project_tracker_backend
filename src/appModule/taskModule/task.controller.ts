@@ -208,8 +208,8 @@ export const deleteTask = async (req: Request, res: Response): Promise<void> => 
 
 export const toggleTaskStatus = async (req: Request, res: Response): Promise<void> => {
     try {
-        const userId = req.userId;
-        const taskIdStr = req.params.id as string;
+        const userId = (req as any).userId;
+        const taskIdStr = req.query.id as string;
         const taskId = parseInt(taskIdStr, 10);
 
         if (!userId) {
