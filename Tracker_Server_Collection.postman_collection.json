@@ -395,14 +395,19 @@
                         "method": "PATCH",
                         "header": [],
                         "url": {
-                            "raw": "{{baseUrl}}/tasks/1/toggle",
+                            "raw": "{{baseUrl}}/tasks/toggle?id=1",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "tasks",
-                                "1",
                                 "toggle"
+                            ],
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "1"
+                                }
                             ]
                         }
                     },
