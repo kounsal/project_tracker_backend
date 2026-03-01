@@ -210,7 +210,7 @@ export const toggleTaskStatus = async (req: Request, res: Response): Promise<voi
     try {
         const userId = (req as any).userId;
         const taskIdStr = req.query.id as string;
-        const taskId = parseInt(taskIdStr, 10);
+        const taskId = parseInt(taskIdStr);
 
         if (!userId) {
             sendResponse(res, 401, false, {}, "Unauthorized", "User not authenticated");

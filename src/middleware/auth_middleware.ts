@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { verifyAccessToken } from "../utils/jwt";
+import { sendResponse } from "../utils/response_model";
 
 declare global {
     namespace Express {
@@ -16,7 +17,7 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
     const token = authHeader && authHeader.split(" ")[1];
 
     if (!token) {
-        res.status(401).json({ error: "Access token is missing" });
+        sendResponse(res, 401, false, {}, "Access token is missing", "Failed to authenticate token");
         return;
     }
 
@@ -25,6 +26,6 @@ export const authenticateToken = (req: Request, res: Response, next: NextFunctio
         req.userId = decoded.userId;
         next();
     } catch (error) {
-        res.status(403).json({ error: "Invalid or expired access token" });
+        sendResponse(res, 403, false, {}, "Invalid or expired access token", "Failed to authenticate token");
     }
 };

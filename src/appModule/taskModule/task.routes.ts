@@ -16,9 +16,11 @@ router.use(authenticateToken);
 
 router.post("/", createTask);
 router.get("/", getTasks);
+
+router.patch("/toggle", toggleTaskStatus);
 router.get("/:id", getTaskById);
 router.patch("/:id", updateTask);
 router.delete("/:id", deleteTask);
-router.patch("/toggle", toggleTaskStatus);
+
 
 export default router;
